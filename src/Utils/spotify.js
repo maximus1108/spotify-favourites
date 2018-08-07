@@ -10,14 +10,14 @@ const storedState = localStorage.getItem(stateKey);
 
 const isAuthorized = Object.keys(params).length > 0 && params.access_token && params.state === storedState;
 
-const generateRandomString = length =>{
-    let text = '';
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+const generateRandomString = length =>  {
+    // let text = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-    for (let i = 0; i < length; i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return text;
+    // for (let i = 0; i < length; i++) {
+    //   text += possible.charAt(Math.floor(Math.random() * possible.length));
+    // }
+    return new Array(length).reduce(string => string + characters.charAt(Math.floor(Math.random() * characters.length)), '');
 }
 
 const state = generateRandomString(16);

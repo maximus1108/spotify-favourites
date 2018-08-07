@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import { Provider } from 'react-redux';
-import store from './store';
+import React, { Fragment, Component } from 'react';
+// import { Provider } from 'react-redux';
+// import store from './store';
 // import { setProducts } from './actions';
 // import axios from 'axios';
 // import spotify from '../Utils/spotify'
 import { BrowserRouter, Route } from 'react-router-dom';
-import Home from './Pages/Home';
-import Listings from './Pages/Listings';
+import Home from '../../Pages/Home';
+import Listings from '../../Pages/Listings';
 
 // class App extends Component {
 //     constructor() {
@@ -40,15 +40,28 @@ import Listings from './Pages/Listings';
 //     }
 // }
 
-const App = () => (
-    <Provider store={ store }>
-        <BrowserRouter>
-            <Fragment>
-                <Route exact path="/" component={ Home } />
-                <Route exact path="/listings" component={ Listings } />
-            </Fragment>
-        </BrowserRouter>
-    </Provider>
-)
+class App extends Component {
+
+    constructor() {
+        super();
+    }
+
+    componentDidMount ()  {
+
+    }
+
+    render() {
+        return (
+            // <Provider store={ store }>
+                <BrowserRouter>
+                    <Fragment>
+                        <Route exact path="/" component={ Home } />
+                        <Route exact path="/listings" component={ Listings } />
+                    </Fragment>
+                </BrowserRouter>
+            // </Provider>
+        )
+    }
+}
 
 export default App; 

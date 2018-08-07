@@ -3,8 +3,15 @@
 import './Assets/Styles/critical.scss';
 import './Assets/Styles/index.scss';
 
+import { Provider } from 'react-redux';
+import store from './store';
 import React, { Component, Fragment } from 'react';
 import ReactDOM, { render } from 'react-dom';
-import App from './App/App';
+import App from './Components/App/App';
 
-render(<App />, document.getElementById('root'));
+render(
+    <Provider store={ store }>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);

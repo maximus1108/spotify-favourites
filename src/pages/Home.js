@@ -1,10 +1,10 @@
 import React, { Fragment, Component } from 'react';
-import TableContainer from '../Components/Table/TableContainer';
-import store from '../store';
-import { setProducts } from '../actions';
-import axios from 'axios';
-import SorterContainer from '../Components/Sorter/SorterContainer';
-import { Link } from 'react-router-dom';
+// import TableContainer from '../Components/Table/TableContainer';
+// import store from '../store';
+// import { setProducts } from '../actions';
+// import axios from 'axios';
+// import SorterContainer from '../Components/Sorter/SorterContainer';
+// import { Link } from 'react-router-dom';
 
 // class Home extends Component {
 //     constructor() {
@@ -38,9 +38,7 @@ import { Link } from 'react-router-dom';
 // }
 
 const Home  = () => (
-    <Link to="/listings">
-        listings
-    </ Link>
+    <button>listings</button>
 )
 
 export default Home; 
