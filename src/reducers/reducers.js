@@ -20,7 +20,19 @@ const sortBy = (state = 'NAME', action) => {
     }
 }
 
+const authorize = (state = false, action) => {
+    switch(action.type) {
+        case 'AUTHORIZE':
+            return true;
+        case 'UNAUTHORIZE':
+            return true;
+        default:
+            return false
+    }
+}
+
 export default combineReducers({
     products,
-    sortBy
+    sortBy,
+    authorize
 });

@@ -7,6 +7,7 @@ import React, { Fragment, Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from '../../Pages/Home';
 import Listings from '../../Pages/Listings';
+import { connect } from 'react-redux';
 
 // class App extends Component {
 //     constructor() {
@@ -47,7 +48,7 @@ class App extends Component {
     }
 
     componentDidMount ()  {
-
+        console.log(this.props)
     }
 
     render() {
@@ -64,4 +65,8 @@ class App extends Component {
     }
 }
 
-export default App; 
+const mapStateToProps = (state) =>  ({
+    isAuthorized: state.authorize
+})
+    
+export default connect(mapStateToProps)(App); 
