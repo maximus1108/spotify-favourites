@@ -4,69 +4,41 @@ import React, { Fragment, Component } from 'react';
 // import { setProducts } from './actions';
 // import axios from 'axios';
 // import spotify from '../Utils/spotify'
-import { BrowserRouter, Route } from 'react-router-dom';
-import Home from '../../Pages/Home';
-import Listings from '../../Pages/Listings';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import Home from '../../pages/Home';
+import Profile from '../../pages/Profile';
+import Unauthorized from '../../pages/Unauthorized';
 import { connect } from 'react-redux';
-
-// class App extends Component {
-//     constructor() {
-//         super();
-
-        
-//         // if(spotify.isAuthorized) {
-//         //     spotify.requestFavourites()
-//         // }
-//         // else {
-//         //     spotify.requestAuthorization()
-//         // }
-//     }
-
-//     // componentDidMount() {
-//     //     axios('http://search-api.fie.future.net.uk/widget.php?id=review&site=TRD&model_name=iPad_Air')
-//     //         .then(response => {
-//     //             store.dispatch(setProducts(response.data.widget.data.offers))
-//     //         })
-//     //         .catch(e => console.log(e))
-//     // }
-
-//     render () {
-//         return (
-//             <Provider store={ store }>
-//                 <BrowserRouter>
-//                     <Route exact path="/" component={ Home } />
-//                 </BrowserRouter>
-//             </Provider>
-//         )
-//     }
-// }
+import { bindActionCreators } from 'redux';
+import { authorizeIfNeeded } from '../../actions/actions';
+import store from '../../store';
 
 class App extends Component {
 
-    constructor() {
+    constructor({ authorizeIfNeeded }) {
         super();
-    }
-
-    componentDidMount ()  {
-        console.log(this.props)
+        authorizeIfNeeded();
     }
 
     render() {
         return (
-            // <Provider store={ store }>
-                <BrowserRouter>
-                    <Fragment>
-                        <Route exact path="/" component={ Home } />
-                        <Route exact path="/listings" component={ Listings } />
-                    </Fragment>
-                </BrowserRouter>
-            // </Provider>
+            <BrowserRouter>
+                <Fragment>
+                    <Route exact path="/" 
+                        render={_ => this.props.isAuthorized ? <Home /> : <Unauthorized/> }/>
+                    <Route exact path="/profile" component={ Profile } />
+                    <Route exact path="/unauthorized" component={ Unauthorized } />
+                </Fragment>
+            </BrowserRouter>
         )
     }
 }
 
-const mapStateToProps = (state) =>  ({
+const mapStateToProps = state =>  {
+    return{
     isAuthorized: state.authorize
-})
+}}
+
+const mapDispatchToProps = dispatch => bindActionCreators({ authorizeIfNeeded }, dispatch)
     
-export default connect(mapStateToProps)(App); 
+export default connect(mapStateToProps, mapDispatchToProps)(App); 

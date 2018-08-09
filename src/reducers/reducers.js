@@ -25,7 +25,7 @@ const authorize = (state = false, action) => {
         case 'AUTHORIZE':
             return true;
         case 'UNAUTHORIZE':
-            return true;
+            return false;
         default:
             return false
     }

@@ -7,11 +7,11 @@ import { Provider } from 'react-redux';
 import store from './store';
 import React, { Component, Fragment } from 'react';
 import ReactDOM, { render } from 'react-dom';
-import App from './Components/App/App';
+import App from './components/App/App';
 
 render(
-    <Provider store={ store }>
-        <App />
-    </Provider>,
+        <Provider store={ store }>
+            <App />
+        </ Provider>,
     document.getElementById('root')
 );
