@@ -27,12 +27,22 @@ const authorize = (state = false, action) => {
         case 'UNAUTHORIZE':
             return false;
         default:
-            return false
+            return state
+    }
+}
+
+const redirect = (state = true, action) => {
+    switch(action.type) {
+        case 'REDIRECTED':
+            return false;
+        default:
+            return state;
     }
 }
 
 export default combineReducers({
     products,
     sortBy,
-    authorize
+    authorize,
+    redirect
 });

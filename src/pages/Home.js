@@ -5,6 +5,7 @@ import React, { Fragment, Component } from 'react';
 // import axios from 'axios';
 // import SorterContainer from '../Components/Sorter/SorterContainer';
 // import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 // class Home extends Component {
 //     constructor() {
@@ -37,8 +38,16 @@ import React, { Fragment, Component } from 'react';
 //     }
 // }
 
-const Home  = () => (
-    <button>listings</button>
+const Home  = ({ showLoader }) => (
+    <Fragment>
+        <button>listings</button>
+        { showLoader ? <div>LOADING</div> : null }
+    </Fragment>
 )
 
-export default Home; 
+const mapStateToProps = state => ({
+    showLoader: state.redirect
+})
+
+
+export default connect(mapStateToProps)(Home); 

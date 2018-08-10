@@ -53,21 +53,29 @@ const unauthorize = _ => ({
     type: 'UNAUTHORIZE'
 });
 
-export const authorizeIfNeeded = () => {
+const redirected = _ => ({
+    type: 'REDIRECTED'
+})
+
+export const authorizeIfNeeded = (...args) => {
     const { access_token, state } = querystring.parse(location.hash);
     // console.log(querystring.parse(location.hash))
     // const stateKey = 'spotify_auth_state';
     const storedState = localStorage.getItem(stateKey);
+    // console.log(args)
     // console.log(state, storedState)
-    debugger;
+    // debugger;
     return dispatch => {
+        // debugger    
         if(access_token) {
+            dispatch(redirected())
             if(state === storedState)
-                return dispatch(authorize())
+                return dispatch(authorize());
             else
-                return dispatch(unauthorize())
+                return dispatch(unauthorize());
         }
         else {
+            // dispatch(redirect());
             return requestAuthorization();
         }
     }

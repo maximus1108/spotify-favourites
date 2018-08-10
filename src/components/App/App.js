@@ -12,20 +12,24 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { authorizeIfNeeded } from '../../actions/actions';
 import store from '../../store';
+import { debug } from 'util';
 
 class App extends Component {
 
     constructor({ authorizeIfNeeded }) {
         super();
+        // debugger
         authorizeIfNeeded();
     }
 
     render() {
+        console.log(this.props)
+        // debugger
         return (
             <BrowserRouter>
                 <Fragment>
                     <Route exact path="/" 
-                        render={_ => this.props.isAuthorized ? <Home /> : <Unauthorized/> }/>
+                        render={_ => this.props.isAuthorized || this.props.redirect ? <Home /> : <Unauthorized/> }/>
                     <Route exact path="/profile" component={ Profile } />
                     <Route exact path="/unauthorized" component={ Unauthorized } />
                 </Fragment>
@@ -34,10 +38,10 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state =>  {
-    return{
-    isAuthorized: state.authorize
-}}
+const mapStateToProps = state => ({
+    isAuthorized: state.authorize,
+    redirect: state.redirect
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators({ authorizeIfNeeded }, dispatch)
     
