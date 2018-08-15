@@ -1,8 +1,19 @@
+html {
+    background: #000;
+    color: #fff;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+}
+
 td, th {
     padding: 6px;
-    border: 1px solid #000;
+    border-bottom: 1px solid #444;
     &:not(:first-child) {
         padding: 6px 20px;
+    }
+    &:last-child, &:nth-last-child(2) {
+        text-align: right;
     }
 }
 
@@ -12,6 +23,29 @@ table {
 }
 
 img {
-    height: 60px;
+    height: 50px;
     display: block;
+    border: 1px solid #333;
+
+}
+
+h1 {
+    margin: 200px auto 0;
+    width: 70%;
+    text-align: center;
+    font-size: 28px;
+}
+
+thead {
+    background-color: #1DB954;
+    th {
+        border: none;
+        font-weight: 400;
+        text-align: left;
+        font-size: 1.125rem;
+        padding: 10px 20px;
+        &:not(:first-child) {
+            padding: 10px 20px;
+        }
+    }
 }

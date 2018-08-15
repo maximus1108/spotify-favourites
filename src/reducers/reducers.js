@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { Z_DEFAULT_COMPRESSION } from "zlib";
 
 const products = (state = [], action) => {
     switch(action.type) {
@@ -82,9 +83,33 @@ const tracks = (state = {
     }
 }
 
+const playingTrack = (state = { 
+    trackId: '',
+    trackUrl: '',
+    isPlaying: ''
+}, action) => {
+    switch(action.type) {
+        case 'PLAY_SONG':
+            return {
+                ...state,
+                trackId: action.id,
+                trackUrl: action.url,
+                isPlaying: true
+            }
+        case 'PAUSE_SONG':
+        return {
+            ...state,
+            isPlaying: false
+        }
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
     sortBy,
     authorization,
     redirect,
-    tracks
+    tracks,
+    playingTrack
 });

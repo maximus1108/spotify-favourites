@@ -84,7 +84,6 @@ export const fetchTracksIfNeeded = _ => {
                 }
             })
             .then(response => {
-                // console.log(response.data.items)
                 dispatch(receiveTracks(response.data.items));
             })
             .catch(e => console.log(e));
@@ -92,3 +91,13 @@ export const fetchTracksIfNeeded = _ => {
     }
          
 }
+
+export const playTrack = (id, url) => ({
+    type: 'PLAY_SONG',
+    id,
+    url
+});
+
+export const pauseTrack = _ => ({
+    type: 'PAUSE_SONG'
+});

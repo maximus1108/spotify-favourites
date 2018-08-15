@@ -20,11 +20,21 @@ class App extends Component {
         super();
         // debugger
         authorizeIfNeeded();
+        this.audio = new Audio();
+    }
+
+    componentDidUpdate(){
+        if(this.props.playTrack) {
+            this.audio.src = this.props.trackUrl;
+            this.audio.play();
+        }
+        else {
+            this.audio.pause();
+        }
     }
 
     render() {
-        console.log(this.props)
-        // debugger
+        // console.log(this.props);
         return (
             <BrowserRouter>
                 <Fragment>
@@ -39,7 +49,9 @@ class App extends Component {
 
 const mapStateToProps = state => ({
     isAuthorized: state.authorization.isAuthorized,
-    redirect: state.redirect
+    redirect: state.redirect,
+    playTrack: state.playingTrack.isPlaying,
+    trackUrl: state.playingTrack.trackUrl
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({ authorizeIfNeeded }, dispatch)

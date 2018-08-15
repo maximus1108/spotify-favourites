@@ -19,7 +19,13 @@ class Home extends Component {
 
     render () {
         console.log(this.props)
-        return this.props.showLoader ? <div>LOADING</div> : <TableContainer /> 
+        return (
+            this.props.showLoader ?
+                <div>LOADING</div> :
+                <TableContainer headings={
+                    ['', 'Title', 'Artist', 'Length', 'Audio']
+                }/>
+            )
     }
 }
 

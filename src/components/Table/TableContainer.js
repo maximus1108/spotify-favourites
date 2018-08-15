@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Table from './Table';
 import React from 'react';
+import PlayButton from '../PlayButton/PlayButtonContainer'
 
 const getSortedProducts = (products, sorter) => {
     switch(sorter) {
@@ -24,13 +25,15 @@ const mapToTableRows = tracks => tracks.map(track =>
         <img src={ track.album.images[0].url } />,
         track.name,
         track.artists.map(artist => artist.name).join(', '),
-        (track.duration_ms / 1000 / 60).toFixed(2).toString().replace('.', ':')
-        // <a href={ product.offer.link }>Go to product</a>
+        (track.duration_ms / 1000 / 60).toFixed(2).toString().replace('.', ':'),
+        <PlayButton 
+            trackId={ track.id }
+            url={ track.preview_url }
+        />  
     ]
 )
 
 const mapStateToProps = (state) => ({
-    // data: mapToTableRows(getSortedProducts(state.products, state.sortBy))
     data: mapToTableRows(state.tracks.tracks)
 })
 export default connect(mapStateToProps)(Table)
