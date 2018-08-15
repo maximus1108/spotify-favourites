@@ -1,7 +1,7 @@
 //import css
 //temp files for now to enable build
-import './Assets/Styles/critical.scss';
-import './Assets/Styles/index.scss';
+// import './Assets/Styles/critical.scss';
+import './assets/styles/index.scss';
 
 import { Provider } from 'react-redux';
 import store from './store';

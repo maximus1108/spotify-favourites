@@ -1,8 +1,16 @@
 td, th {
-    padding: 20px;
+    padding: 6px;
     border: 1px solid #000;
+    &:not(:first-child) {
+        padding: 6px 20px;
+    }
 }
 
 table {
     border-collapse: collapse;
+}
+
+img {
+    height: 60px;
+    display: block;
 }

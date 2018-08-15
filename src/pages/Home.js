@@ -19,7 +19,7 @@ class Home extends Component {
 
     render () {
         console.log(this.props)
-        return this.props.showLoader ? <div>LOADING</div> : <div>HOME</div>//<TableContainer /> 
+        return this.props.showLoader ? <div>LOADING</div> : <TableContainer /> 
     }
 }
 

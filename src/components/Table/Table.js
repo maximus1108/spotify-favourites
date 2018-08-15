@@ -4,9 +4,9 @@ import TableHeader from './TableHeader';
 
 export default ({ headings, data }) => (
     <table>
-        <TableHeader 
+        {/* <TableHeader 
             headings={ headings }
-        />
+        /> */}
         <tbody>
             {
                 data.map((item, i) => 

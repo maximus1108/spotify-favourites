@@ -19,17 +19,18 @@ const getSortedProducts = (products, sorter) => {
     }
 }
 
-const mapToTableRows = products => products.map(product =>
+const mapToTableRows = tracks => tracks.map(track =>
     [
-        <img src={ product.merchant.logo_url } />,
-        product.merchant.name,
-        product.offer.name,
-        product.offer.price,
-        <a href={ product.offer.link }>Go to product</a>
+        <img src={ track.album.images[0].url } />,
+        track.name,
+        track.artists.map(artist => artist.name).join(', '),
+        (track.duration_ms / 1000 / 60).toFixed(2).toString().replace('.', ':')
+        // <a href={ product.offer.link }>Go to product</a>
     ]
 )
 
 const mapStateToProps = (state) => ({
-    data: mapToTableRows(getSortedProducts(state.products, state.sortBy))
+    // data: mapToTableRows(getSortedProducts(state.products, state.sortBy))
+    data: mapToTableRows(state.tracks.tracks)
 })
 export default connect(mapStateToProps)(Table)
