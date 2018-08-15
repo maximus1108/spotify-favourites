@@ -20,12 +20,22 @@ const sortBy = (state = 'NAME', action) => {
     }
 }
 
-const authorize = (state = false, action) => {
+const authorization = (state = {
+    isAuthorized: false,
+    access_token: ''
+}, action) => {
     switch(action.type) {
         case 'AUTHORIZE':
-            return true;
+            return {
+                ...state,
+                isAuthorized: true,
+                access_token: action.access_token
+            };
         case 'UNAUTHORIZE':
-            return false;
+            return {
+                ...state,
+                isAuthorized: false
+            };;
         default:
             return state
     }
@@ -40,9 +50,41 @@ const redirect = (state = true, action) => {
     }
 }
 
+
+// const requestTracks = _ => ({
+//     type: 'REQUEST_TRACKS'
+// });
+
+// const receiveTracks = _ => ({
+//     type: 'RECEIVE_TRACKS'
+// });
+
+const tracks = (state = { 
+    isFetching: false,
+    tracksReceived: false,
+    tracks: []
+}, action) => {
+    switch(action.type) {
+        case 'REQUEST_TRACKS':
+            return {
+                ...state,
+                isFetching: true
+            }
+        case 'RECEIVE_TRACKS':
+            return {
+                ...state,
+                isFetching: false,
+                tracksReceived: true,
+                tracks: action.tracks
+            }
+        default:
+            return state
+    }
+}
+
 export default combineReducers({
-    products,
     sortBy,
-    authorize,
-    redirect
+    authorization,
+    redirect,
+    tracks
 });

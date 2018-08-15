@@ -31,7 +31,6 @@ class App extends Component {
                     <Route exact path="/" 
                         render={_ => this.props.isAuthorized || this.props.redirect ? <Home /> : <Unauthorized/> }/>
                     <Route exact path="/profile" component={ Profile } />
-                    <Route exact path="/unauthorized" component={ Unauthorized } />
                 </Fragment>
             </BrowserRouter>
         )
@@ -39,7 +38,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-    isAuthorized: state.authorize,
+    isAuthorized: state.authorization.isAuthorized,
     redirect: state.redirect
 })
 

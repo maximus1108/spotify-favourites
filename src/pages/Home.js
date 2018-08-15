@@ -1,53 +1,33 @@
 import React, { Fragment, Component } from 'react';
-// import TableContainer from '../Components/Table/TableContainer';
+import TableContainer from '../components/Table/TableContainer';
 // import store from '../store';
-// import { setProducts } from '../actions';
+import { fetchTracksIfNeeded } from '../actions/actions';
 // import axios from 'axios';
 // import SorterContainer from '../Components/Sorter/SorterContainer';
 // import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-// class Home extends Component {
-//     constructor() {
-//         super();
-//     }
+class Home extends Component {
+    constructor() {
+        super();
+    }
 
-//     componentDidMount() {
-//         axios('http://search-api.fie.future.net.uk/widget.php?id=review&site=TRD&model_name=iPad_Air')
-//             .then(response => {
-//                 store.dispatch(setProducts(response.data.widget.data.offers))
-//             })
-//             .catch(e => console.log(e))
-//     }
+    componentDidMount() {
+        this.props.fetchTracksIfNeeded();
+    }
 
-//     render () {
-//         return (
-//             <Fragment>
-//                 <SorterContainer />
-//                 <TableContainer
-//                     headings = {[ 
-//                         "Logo",
-//                         "Merchant Name", 
-//                         "Product Name",
-//                         "Price",
-//                         "Link"
-//                     ]}
-//                 />
-//             </ Fragment>
-//         )
-//     }
-// }
-
-const Home  = ({ showLoader }) => (
-    <Fragment>
-        <button>listings</button>
-        { showLoader ? <div>LOADING</div> : null }
-    </Fragment>
-)
+    render () {
+        console.log(this.props)
+        return this.props.showLoader ? <div>LOADING</div> : <div>HOME</div>//<TableContainer /> 
+    }
+}
 
 const mapStateToProps = state => ({
-    showLoader: state.redirect
+    showLoader: state.redirect,
+    tracks: state.tracks.tracks
 })
 
+const mapDispatchToProps = dispatch => bindActionCreators({ fetchTracksIfNeeded }, dispatch)
 
-export default connect(mapStateToProps)(Home); 
+export default connect(mapStateToProps, mapDispatchToProps)(Home); 
