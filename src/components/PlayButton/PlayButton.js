@@ -8,8 +8,10 @@ const PlayButton = ({
     url,
     isPlaying
 }) => (
-    <button onClick={trackId === currentTrackId && isPlaying ? pauseTrack : _ => playTrack(trackId, url)}>
-        { trackId === currentTrackId && isPlaying ? 'Pause' : 'Play' }
+    <button
+        onClick={trackId === currentTrackId && isPlaying ? pauseTrack : _ => playTrack(trackId, url)}
+        className={`play-btn ${trackId === currentTrackId && isPlaying ? `play-btn--pause` : `play-btn--play`}`}    
+    >
     </button>
 )
 
