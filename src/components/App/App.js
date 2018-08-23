@@ -11,6 +11,7 @@ import Unauthorized from '../../pages/Unauthorized';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { authorizeIfNeeded } from '../../actions/actions';
+import Controls from '../Controls/ControlsContainer';
 import store from '../../store';
 import { debug } from 'util';
 
@@ -36,13 +37,16 @@ class App extends Component {
     render() {
         // console.log(this.props);
         return (
-            <BrowserRouter>
-                <Fragment>
-                    <Route exact path="/" 
-                        render={_ => this.props.isAuthorized || this.props.redirect ? <Home /> : <Unauthorized/> }/>
-                    <Route exact path="/profile" component={ Profile } />
-                </Fragment>
-            </BrowserRouter>
+            <Fragment>
+                <BrowserRouter>
+                    <Fragment>
+                        <Route exact path="/" 
+                            render={_ => this.props.isAuthorized || this.props.redirect ? <Home /> : <Unauthorized/> }/>
+                        <Route exact path="/profile" component={ Profile } />
+                    </Fragment>
+                </BrowserRouter>
+                <Controls />
+            </Fragment>
         )
     }
 }

@@ -6,13 +6,9 @@ html {
     font-weight: 200;
 }
 
-@mixin row-separator {
-    border-bottom: 1px solid #444;
-}
-
 td, th {
     padding: 6px;
-    @include row-separator;
+    border-bottom: 1px solid #444;
     &:not(:first-child) {
         padding: 6px 20px;
     }
@@ -72,10 +68,10 @@ thead {
             height: 0;
             border-top: 6px solid transparent;
             border-bottom: 6px solid transparent;
-            border-right: 10px solid #fff;
+            border-left: 10px solid #fff;
             display: block;
             position: absolute;
-            left: 8px;
+            right: 8px;
             top: 8px;
             display: block;
         }
@@ -125,6 +121,9 @@ thead {
     transform: translate(-50%, -50%);
     width: 200px;
     text-align: center;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 10;
 }
 
 .loader__icon {
@@ -141,4 +140,20 @@ thead {
     display: block;
     margin-top: 10px;
     font-size: 1.125rem;
+}
+
+.controls {
+    height: 100px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+}
+
+.controls__play {
+    margin: auto;
+    display: block;
+    transform: scale(2.2);
+    margin-top: 33px;
 }
