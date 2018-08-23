@@ -72,10 +72,7 @@ export const fetchTracksIfNeeded = _ => {
             }, authorization
         } = getState();
 
-        if(tracksReceived){
-
-        }
-        else {
+        if(tracksReceived === false) {
             dispatch(requestTracks());
             axios({
                 url: 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=200',

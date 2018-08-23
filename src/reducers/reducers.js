@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import { Z_DEFAULT_COMPRESSION } from "zlib";
 
 const products = (state = [], action) => {
     switch(action.type) {

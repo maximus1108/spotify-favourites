@@ -7,6 +7,7 @@ import { fetchTracksIfNeeded } from '../actions/actions';
 // import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Loader from '../components/Loader/Loader';
 
 class Home extends Component {
     constructor() {
@@ -18,10 +19,9 @@ class Home extends Component {
     }
 
     render () {
-        console.log(this.props)
         return (
             this.props.showLoader ?
-                <div>LOADING</div> :
+                <Loader /> :
                 <TableContainer headings={
                     ['', 'Title', 'Artist', 'Length', 'Audio']
                 }/>
@@ -30,7 +30,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-    showLoader: state.redirect,
+    showLoader: state.redirect || !state.tracks.tracksReceived,
     tracks: state.tracks.tracks
 })
 
