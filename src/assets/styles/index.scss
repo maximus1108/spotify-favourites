@@ -6,9 +6,13 @@ html {
     font-weight: 200;
 }
 
+@mixin row-separator {
+    border-bottom: 1px solid #444;
+}
+
 td, th {
     padding: 6px;
-    border-bottom: 1px solid #444;
+    @include row-separator;
     &:not(:first-child) {
         padding: 6px 20px;
     }
@@ -37,23 +41,16 @@ h1 {
 }
 
 thead {
-    background-color: #1DB954;
 
     th {
-        border: none;
         font-weight: 400;
         text-align: left;
-        font-size: 1.125rem;
         padding: 10px 20px;
+        text-transform: uppercase;
+        color: #888;
         
         &:not(:first-child) {
             padding: 10px 20px;
-        }
-        &:first-child {
-            border-radius: 8px 0 0 0;
-        }
-        &:last-child {
-            border-radius: 0 8px 0 0;
         }
     }
 }
@@ -143,5 +140,5 @@ thead {
 .loader__text {
     display: block;
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 1.125rem;
 }
