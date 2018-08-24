@@ -17,6 +17,7 @@ export default ({
             url={ trackUrl }
             isPlaying={ isPlaying }
             cssClasses={ 'controls__play' }
+            disable={ trackId === '' }
         />
     </div>
 )

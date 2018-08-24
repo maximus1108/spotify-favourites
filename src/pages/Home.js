@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import Header from '../components/Header/Header';
 import TableContainer from '../components/Table/TableContainer';
 // import store from '../store';
 import { fetchTracksIfNeeded } from '../actions/actions';
@@ -20,12 +21,18 @@ class Home extends Component {
 
     render () {
         return (
-            this.props.showLoader ?
-                <Loader /> :
-                <TableContainer headings={
-                    ['', 'Title', 'Artist', 'Length', 'Audio']
-                }/>
-            )
+            <Fragment>
+                <Header />
+                {
+                    this.props.showLoader ?
+                        <Loader /> :
+                        <TableContainer headings={
+                            ['', 'Title', 'Artist', 'Length', 'Audio']
+                        }/>
+                }
+            </Fragment>
+        )
+            
     }
 }
 

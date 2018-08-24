@@ -7,13 +7,14 @@ const PlayButton = ({
     currentTrackId,
     url,
     isPlaying,
-    cssClasses = ''
+    cssClasses = '',
+    disable = false
 }) => (
     <button
         onClick={trackId === currentTrackId && isPlaying ? pauseTrack : _ => trackId && playTrack(trackId, url)}
         className={`play-btn 
             ${cssClasses} 
-            ${currentTrackId === '' && trackId === '' ? 'play-btn--disabled' : ''}
+            ${disable ? 'play-btn--disabled' : ''}
             ${trackId === currentTrackId && isPlaying ? `play-btn--pause` : `play-btn--play`}`}    
     >
     </button>
