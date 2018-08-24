@@ -92,6 +92,14 @@ thead {
     &:hover {
         opacity: 1;
     }
+
+    &--disabled {
+        opacity: 0.3;
+        cursor: default;
+        &:hover {
+            opacity: 0.3;
+        }
+    }
 }
 
 .container--fullscreen {
