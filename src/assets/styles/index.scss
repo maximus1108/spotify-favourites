@@ -143,7 +143,7 @@ thead {
 }
 
 .controls {
-    height: 100px;
+    height: 80px;
     position: fixed;
     left: 0;
     right: 0;
@@ -154,6 +154,6 @@ thead {
 .controls__play {
     margin: auto;
     display: block;
-    transform: scale(2.2);
-    margin-top: 33px;
+    transform: scale(1.8);
+    margin-top: 24px;
 }
