@@ -15,11 +15,33 @@ td, th {
     &:last-child, &:nth-last-child(2) {
         text-align: right;
     }
+
+    &:first-child {
+        width: 7%;
+    }
+
+    &:nth-child(2) {
+        width: 45%;
+    }
+
+    &:nth-child(3) {
+        width: 31%;
+    }
+    
+    &:nth-child(4) {
+        width: 10%;
+    }
+
+    &:last-child {
+        width: 7%;
+    }
+
 }
 
 table {
     border-collapse: collapse;
     margin: 50px auto 0;
+    width: 70%;
 }
 
 img {

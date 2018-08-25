@@ -105,10 +105,20 @@ const playingTrack = (state = {
     }
 }
 
+const searchQuery = (state = '', action) => {
+    switch(action.type) {
+        case 'UPDATE_SEARCH_QUERY':
+            return action.query;
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
     sortBy,
     authorization,
     redirect,
     tracks,
-    playingTrack
+    playingTrack,
+    searchQuery
 });

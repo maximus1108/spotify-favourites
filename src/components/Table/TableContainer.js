@@ -33,7 +33,13 @@ const mapToTableRows = tracks => tracks.map(track =>
     ]
 )
 
-const mapStateToProps = (state) => ({
-    data: mapToTableRows(state.tracks.tracks)
+const getFilteredTracks = (tracks, query) =>
+    tracks.filter(track =>
+        track.name.toLowerCase().includes(query) ||
+        track.artists.some(artist => artist.name.toLowerCase().includes(query))
+    )
+
+const mapStateToProps = state => ({
+    data: mapToTableRows(getFilteredTracks(state.tracks.tracks, state.searchQuery))
 })
 export default connect(mapStateToProps)(Table)

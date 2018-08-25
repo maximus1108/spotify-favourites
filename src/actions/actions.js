@@ -98,3 +98,8 @@ export const playTrack = (id, url) => ({
 export const pauseTrack = _ => ({
     type: 'PAUSE_SONG'
 });
+
+export const updateSearch = query => ({
+    type: 'UPDATE_SEARCH_QUERY',
+    query
+})
