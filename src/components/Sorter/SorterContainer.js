@@ -1,12 +1,21 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Sorter from './Sorter';
-import { sortByPriceAscending, sortByPriceDescending, sortByName } from '../../actions';
-
+import {
+    removeSort,
+    sortByTitleAscending,
+    sortByTitleDescending,
+    sortByArtistAscending,
+    sortByArtistDescending
+} from '../../actions/actions';
     
-const mapDispatchToProps = (dispatch) => ({
-    sortByPriceAscending: _ => dispatch(sortByPriceAscending()),
-    sortByPriceDescending: _ => dispatch(sortByPriceDescending()),
-    sortByName: _ => dispatch(sortByName())
-})
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({
+        removeSort,
+        sortByTitleAscending,
+        sortByTitleDescending,
+        sortByArtistAscending,
+        sortByArtistDescending
+    }, dispatch);
 
 export default connect(undefined, mapDispatchToProps)(Sorter)

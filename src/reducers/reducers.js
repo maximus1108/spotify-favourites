@@ -1,25 +1,5 @@
 import { combineReducers } from "redux";
 
-const products = (state = [], action) => {
-    switch(action.type) {
-        case 'SET_PRODUCTS':
-            return action.products;
-        default:
-            return state
-    }
-}
-
-const sortBy = (state = 'NAME', action) => {
-    switch(action.type) {
-        case 'PRICE_ASCENDING':
-        case 'PRICE_DESCENDING':
-        case 'NAME':
-            return action.type;
-        default:
-            return state
-    }
-}
-
 const authorization = (state = {
     isAuthorized: false,
     access_token: ''
@@ -49,15 +29,6 @@ const redirect = (state = true, action) => {
             return state;
     }
 }
-
-
-// const requestTracks = _ => ({
-//     type: 'REQUEST_TRACKS'
-// });
-
-// const receiveTracks = _ => ({
-//     type: 'RECEIVE_TRACKS'
-// });
 
 const tracks = (state = { 
     isFetching: false,
@@ -109,6 +80,19 @@ const searchQuery = (state = '', action) => {
     switch(action.type) {
         case 'UPDATE_SEARCH_QUERY':
             return action.query;
+        default:
+            return state;
+    }
+}
+
+const sortBy = (state = 'SORT_NONE', action) => {
+    switch(action.type) {
+        case 'SORT_NONE':
+        case 'SORT_TITLE_ASCENDING':
+        case 'SORT_TITLE_DESCENDING':
+        case 'SORT_ARTIST_ASCENDING':
+        case 'SORT_ARTIST_DESCENDING':
+            return action.type;
         default:
             return state;
     }

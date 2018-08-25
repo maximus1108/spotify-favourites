@@ -2,19 +2,6 @@ import querystring from 'query-string';
 import spotify from '../utils/spotify';
 import axios from 'axios';
 
-export const setProducts = products => ({
-    type: 'SET_PRODUCTS',
-    products
-});
-
-export const sortByPriceAscending = _ => ({
-    type: 'PRICE_ASCENDING'
-});
-
-export const sortByPriceDescending = _ => ({
-    type: 'PRICE_DESCENDING'
-});
-
 export const sortByName = _ => ({
     type: 'NAME'
 });
@@ -102,4 +89,24 @@ export const pauseTrack = _ => ({
 export const updateSearch = query => ({
     type: 'UPDATE_SEARCH_QUERY',
     query
-})
+});
+
+export const removeSort = _ => ({
+    type: 'SORT_NONE'
+});
+
+export const sortByTitleAscending = _ => ({
+    type: 'SORT_TITLE_ASCENDING'
+});
+
+export const sortByTitleDescending = _ => ({
+    type: 'SORT_TITLE_DESCENDING'
+});
+
+export const sortByArtistAscending = _ => ({
+    type: 'SORT_ARTIST_ASCENDING'
+});
+
+export const sortByArtistDescending = _ => ({
+    type: 'SORT_ARTIST_DESCENDING'
+});

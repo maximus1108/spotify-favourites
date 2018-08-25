@@ -1,29 +1,36 @@
 import React, { Fragment } from 'react';
 
 export default ({
-    sortByPriceAscending,
-    sortByPriceDescending,
-    sortByName
+    removeSort,
+    sortByTitleAscending,
+    sortByTitleDescending,
+    sortByArtistAscending,
+    sortByArtistDescending
 }) => {
 
     const onSelectChange = e => {
         const { value } = e.target;
-        if(value === 'price-ascending')
-            sortByPriceAscending();
-        else if(value === 'price-descending')
-            sortByPriceDescending();
-        else if (value === 'name')
-            sortByName()
+        if(value === 'none')
+            removeSort();
+        else if(value === 'title-ascending')
+            sortByTitleAscending();
+        else if (value === 'title-descending')
+            sortByTitleDescending()
+        else if(value === 'artist-ascending')
+            sortByArtistAscending();
+        else if (value === 'artist-descending')
+            sortByArtistDescending()
     }
 
     return (
         <Fragment>
             <label htmlFor="sort">Sort by:</label>
-            <select id="sort" style={{ margin: "20px" }} onChange={onSelectChange}>
-                <option defaultValue> no sort selected</option>
-                <option value="price-ascending">Price Ascending</option>
-                <option value="price-descending">Price Descending</option>
-                <option value="name">Name</option>
+            <select id="sort" onChange={onSelectChange}>
+                <option value="none">None</option>
+                <option value="title-ascending">Title Ascending</option>
+                <option value="title-descending">Title Descendng</option>
+                <option value="artist-ascending">Artist Ascending</option>
+                <option value="artist-descending">Artist Descendng</option>
             </select>
         </Fragment>
     );
