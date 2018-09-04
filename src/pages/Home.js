@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import Header from '../components/Header/Header';
 import TableContainer from '../components/Table/TableContainer';
 // import store from '../store';
-import { fetchTracksIfNeeded } from '../actions/actions';
+import { fetchTracksIfNeeded, fetchProfileIfNeeded } from '../actions/actions';
 // import axios from 'axios';
 // import SorterContainer from '../Components/Sorter/SorterContainer';
 // import { Link } from 'react-router-dom';
@@ -17,6 +17,7 @@ class Home extends Component {
 
     componentDidMount() {
         this.props.fetchTracksIfNeeded();
+        this.props.fetchProfileIfNeeded();
     }
 
     render () {
@@ -37,10 +38,10 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-    showLoader: state.redirect || !state.tracks.tracksReceived,
+    showLoader: state.redirect || !state.tracks.tracksReceived || state.tracks.isFetching,
     tracks: state.tracks.tracks
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({ fetchTracksIfNeeded }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ fetchTracksIfNeeded, fetchProfileIfNeeded }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home); 
