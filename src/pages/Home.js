@@ -38,7 +38,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-    showLoader: state.redirect || !state.tracks.tracksReceived || state.tracks.isFetching,
+    showLoader: state.redirect || !state.tracks.tracksReceived || state.tracks.isFetching || state.profile.isFetching,
     tracks: state.tracks.tracks
 })
 
