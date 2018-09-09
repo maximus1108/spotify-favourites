@@ -1,11 +1,10 @@
 import React, { Fragment, Component } from 'react';
 import Header from '../components/Header/Header';
 import TableContainer from '../components/Table/TableContainer';
-// import store from '../store';
+import Search from '../Components/Search/SearchContainer';
+import Sorter from '../Components/Sorter/SorterContainer';
+import ProfilePreview from '../Components/ProfilePreview/ProfilePreviewContainer';
 import { fetchTracksIfNeeded, fetchProfileIfNeeded } from '../actions/actions';
-// import axios from 'axios';
-// import SorterContainer from '../Components/Sorter/SorterContainer';
-// import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Loader from '../components/Loader/Loader';
@@ -23,7 +22,11 @@ class Home extends Component {
     render () {
         return (
             <Fragment>
-                <Header />
+                <Header>
+                    <Search />
+                    <Sorter />
+                    <ProfilePreview />
+                </Header>
                 {
                     this.props.showLoader ?
                         <Loader /> :
