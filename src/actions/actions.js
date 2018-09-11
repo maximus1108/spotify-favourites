@@ -20,13 +20,15 @@ const redirected = _ => ({
 })
 
 export const authorizeIfNeeded = _ => {
-    const { access_token, state } = querystring.parse(location.hash);
-    const storedState = localStorage.getItem(spotify.stateKey);
+    const { state } = querystring.parse(location.hash);
+    const storedState = sessionStorage.getItem(spotify.stateKey);
 
-    return dispatch => {
-        if(access_token) {
+    return (dispatch, getState) => {
+        const { access_token, isAuthorized } = getState().authorization;
+
+        if(access_token || isAuthorized) {
             dispatch(redirected())
-            if(state === storedState)
+            if(state === storedState || isAuthorized)
                 return dispatch(authorize(access_token));
             else
                 return dispatch(unauthorize());

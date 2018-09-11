@@ -1,9 +1,4 @@
 import React, { Fragment, Component } from 'react';
-// import { Provider } from 'react-redux';
-// import store from './store';
-// import { setProducts } from './actions';
-// import axios from 'axios';
-// import spotify from '../Utils/spotify'
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import Home from '../../pages/Home';
 import Profile from '../../pages/Profile';
@@ -12,14 +7,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { authorizeIfNeeded } from '../../actions/actions';
 import Controls from '../Controls/ControlsContainer';
-import store from '../../store';
-import { debug } from 'util';
 
 class App extends Component {
 
     constructor({ authorizeIfNeeded }) {
         super();
-        // debugger
         authorizeIfNeeded();
         this.audio = new Audio();
     }

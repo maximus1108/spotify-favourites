@@ -23,25 +23,10 @@ export default {
             state: state
         };
     
-        localStorage.setItem(stateKey, state);
+        sessionStorage.setItem(stateKey, state);
     
         window.location = `${url}?${querystring.stringify(queries)}`;
 
     },
     stateKey
-    // ,
-    // requestFavourites() {
-    //     console.log(params.access_token)
-    //     axios({
-    //         url: 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=200',
-    //         headers: {
-    //             'Authorization': `Bearer ${params.access_token}`
-    //         }
-    //     })
-    //     .then(response => {
-    //         console.log(response)
-    //     })
-    //     .catch(e => console.log(e));
-    // }
-
 }

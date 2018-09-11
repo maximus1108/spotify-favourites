@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 
 const authorization = (state = {
     isAuthorized: false,
-    access_token: ''
+    access_token: '',
 }, action) => {
     switch(action.type) {
         case 'AUTHORIZE':
