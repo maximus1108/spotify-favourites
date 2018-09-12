@@ -1,15 +1,21 @@
+import {
+    UNAUTHORIZE,
+    AUTHORIZE,
+    REDIRECTED
+} from '../actions/types'
+
 export const authorization = (state = {
     isAuthorized: false,
     access_token: '',
 }, action) => {
     switch(action.type) {
-        case 'AUTHORIZE':
+        case AUTHORIZE:
             return {
                 ...state,
                 isAuthorized: true,
                 access_token: action.access_token
             };
-        case 'UNAUTHORIZE':
+        case UNAUTHORIZE:
             return {
                 ...state,
                 isAuthorized: false
@@ -21,7 +27,7 @@ export const authorization = (state = {
 
 export const redirect = (state = true, action) => {
     switch(action.type) {
-        case 'REDIRECTED':
+        case REDIRECTED:
             return false;
         default:
             return state;

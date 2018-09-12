@@ -1,17 +1,22 @@
 import spotify from '../utils/spotify';
 import querystring from 'query-string';
+import {
+    AUTHORIZE,
+    UNAUTHORIZE,
+    REDIRECTED
+} from './types'
 
 const authorize = access_token => ({
-    type: 'AUTHORIZE',
+    type: AUTHORIZE,
     access_token
 });
 
 const unauthorize = _ => ({
-    type: 'UNAUTHORIZE'
+    type: UNAUTHORIZE
 });
 
 const redirected = _ => ({
-    type: 'REDIRECTED'
+    type: REDIRECTED
 })
 
 export const authorizeIfNeeded = _ => {

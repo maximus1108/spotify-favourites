@@ -1,11 +1,15 @@
 import axios from 'axios';
+import {
+    REQUEST_PROFILE,
+    RECEIVE_PROFILE
+} from './types';
 
 const requestProfile = _ => ({
-    type: 'REQUEST_PROFILE'
+    type: REQUEST_PROFILE
 });
 
 const receiveProfile = profileInfo => ({
-    type: 'RECEIVE_PROFILE',
+    type: RECEIVE_PROFILE,
     profileInfo
 });
 

@@ -1,3 +1,9 @@
+
+import {
+    RECEIVE_PROFILE,
+    REQUEST_PROFILE
+} from '../actions/types';
+
 const profileInfo = (state = {
     name: '',
     email: '',
@@ -6,7 +12,7 @@ const profileInfo = (state = {
     country: ''
 }, action) => {
     switch(action.type) {
-        case 'RECEIVE_PROFILE':
+        case RECEIVE_PROFILE:
             return {
                 ...action.profileInfo
             }
@@ -21,12 +27,12 @@ export const profile = (state = {
     profileInfo: {}
 }, action) => {
     switch(action.type) {
-        case 'REQUEST_PROFILE':
+        case REQUEST_PROFILE:
             return {
                 ...state,
                 isFetching: true
             }
-        case 'RECEIVE_PROFILE':
+        case RECEIVE_PROFILE:
             return {
                 ...state,
                 isFetching: false,

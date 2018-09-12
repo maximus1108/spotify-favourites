@@ -1,11 +1,17 @@
 import axios from 'axios';
+import {
+    REQUEST_TRACKS,
+    RECEIVE_TRACKS,
+    PLAY_TRACK,
+    PAUSE_TRACK
+} from './types';
 
 const requestTracks = _ => ({
-    type: 'REQUEST_TRACKS'
+    type: REQUEST_TRACKS
 });
 
 const receiveTracks = tracks => ({
-    type: 'RECEIVE_TRACKS',
+    type: RECEIVE_TRACKS,
     tracks
 });
 
@@ -38,11 +44,11 @@ export const fetchTracksIfNeeded = _ => {
 }
 
 export const playTrack = (id, url) => ({
-    type: 'PLAY_SONG',
+    type: PLAY_TRACK,
     id,
     url
 });
 
 export const pauseTrack = _ => ({
-    type: 'PAUSE_SONG'
+    type: PAUSE_TRACK
 });

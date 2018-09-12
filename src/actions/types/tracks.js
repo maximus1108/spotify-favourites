@@ -1,0 +1,5 @@
+
+export const REQUEST_TRACKS = 'REQUEST_TRACKS';
+export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
+export const PLAY_TRACK = 'PLAY_TRACK';
+export const PAUSE_TRACK = 'PAUSE_TRACK';
