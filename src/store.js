@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import reducers from './reducers/reducers';
+import reducers from './reducers';
 import thunk from 'redux-thunk';
 import querystring from 'query-string';
 
