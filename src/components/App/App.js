@@ -5,7 +5,7 @@ import Profile from '../../pages/Profile';
 import Unauthorized from '../../pages/Unauthorized';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { authorizeIfNeeded } from '../../actions/actions';
+import { authorizeIfNeeded } from '../../actions';
 import Controls from '../Controls/ControlsContainer';
 
 class App extends Component {
@@ -27,7 +27,6 @@ class App extends Component {
     }
 
     render() {
-        // console.log(this.props);
         return (
             <Fragment>
                 <BrowserRouter>

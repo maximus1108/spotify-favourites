@@ -7,7 +7,7 @@ import {
     sortByTitleDescending,
     sortByArtistAscending,
     sortByArtistDescending
-} from '../../actions/actions';
+} from '../../actions';
     
 const mapDispatchToProps = dispatch =>
     bindActionCreators({

@@ -4,7 +4,7 @@ import TableContainer from '../components/Table/TableContainer';
 import Search from '../Components/Search/SearchContainer';
 import Sorter from '../Components/Sorter/SorterContainer';
 import ProfilePreview from '../Components/ProfilePreview/ProfilePreviewContainer';
-import { fetchTracksIfNeeded, fetchProfileIfNeeded } from '../actions/actions';
+import { fetchTracksIfNeeded, fetchProfileIfNeeded } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Loader from '../components/Loader/Loader';

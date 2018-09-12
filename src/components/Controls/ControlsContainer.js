@@ -1,7 +1,7 @@
 import Controls from './Controls';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { playTrack, pauseTrack } from '../../actions/actions'
+import { playTrack, pauseTrack } from '../../actions'
 
 const mapStateToProps = state => ({
     trackId: state.playingTrack.trackId,
