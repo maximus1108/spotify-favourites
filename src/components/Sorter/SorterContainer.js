@@ -34,12 +34,4 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-    // bindActionCreators({
-    //     removeSort,
-    //     sortByTitleAscending,
-    //     sortByTitleDescending,
-    //     sortByArtistAscending,
-    //     sortByArtistDescending
-    // }, dispatch);
-
 export default connect(undefined, mapDispatchToProps)(Sorter)
