@@ -31,6 +31,6 @@ const store = createStore(
     applyMiddleware(thunk, persistAuthorization),
 
 )
-console.log(access_token, store.getState())
+
 
 export default store;
