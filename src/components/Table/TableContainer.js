@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import Table from './Table';
 import React from 'react';
-import PlayButton from '../PlayButton/PlayButtonContainer'
-
+import PlayButton from '../PlayButton/PlayButtonContainer';
+import { pipe } from '../../utils/functional';
+ 
 const getArtistsForTrack = track => track.artists.map(artist => artist.name).join(', ');
 
 const mapToTableRows = tracks => tracks.map(track =>
@@ -60,8 +61,6 @@ const getSortedTracks = criteria => tracks => {
             tracks
     }
 }
-
-const pipe = (...funcs) => input => funcs.reduce((value, func) => func(value), input);
 
 const mapStateToProps = state => ({
     data: pipe(
