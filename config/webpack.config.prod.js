@@ -136,7 +136,7 @@ module.exports = merge(common, {
             }
         }),
         new webpack.DefinePlugin({
-            '__REDIRECT_URL__': '"http://localhost:8080/"'
+            '__REDIRECT_URL__': '"https://maximus1108.github.io/spotify-favourites/"'
         })
     ]
 });
