@@ -28652,7 +28652,7 @@ var _queryString2 = _interopRequireDefault(_queryString);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var client_id = 'aac295ff1ab247a6bcd0bf0d9ad8a14f'; // Your client id
-var redirect_uri = "http://localhost:8080/"; // Your redirect uri
+var redirect_uri = "https://maximus1108.github.io/spotify-favourites/"; // Your redirect uri
 var scope = 'user-read-private user-read-email user-top-read';
 var stateKey = 'spotify_auth_state';
 
