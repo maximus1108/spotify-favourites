@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Sorter from './Sorter';
 import {
     removeSort,
@@ -13,23 +12,23 @@ const mapDispatchToProps = dispatch => ({
     options: {
         'none': {
             text: 'None',
-            action: dispatch(removeSort),
+            action: _ => dispatch(removeSort()),
         },
         'title-ascending': {
             text: 'Title Ascending',
-            action: dispatch(sortByTitleAscending),
+            action: _ => dispatch(sortByTitleAscending()),
         },
         'title-descending': {
             text: 'Title Descending',
-            action: dispatch(sortByTitleDescending),
+            action: _ => dispatch(sortByTitleDescending()),
         },
         'artist-ascending': {
             text: 'Artist Ascending',
-            action: dispatch(sortByArtistAscending),
+            action: _ => dispatch(sortByArtistAscending()),
         },
         'artist-descending': {
             text: 'Artist Descending',
-            action: dispatch(sortByArtistDescending),
+            action: _ => dispatch(sortByArtistDescending()),
         }
     }
 });

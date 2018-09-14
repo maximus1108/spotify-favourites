@@ -8,10 +8,6 @@ import { bindActionCreators } from 'redux';
 
 class Profile extends Component {
 
-    componentDidMount() {
-        this.props.fetchProfileIfNeeded();
-    }
-
     render () {
         const {
             name,

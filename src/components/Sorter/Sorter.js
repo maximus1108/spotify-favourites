@@ -3,8 +3,17 @@ import React, { Fragment } from 'react';
 export default ({
     options
 }) => {
+    
+    const onSelectChange = options => e => {  
+        const { 
+            target: {
+                selectedIndex,
+                options: targetOptions 
+            }, target
+        } = e;
 
-    const onSelectChange = options => e => options[e.target.value].action();
+        options[targetOptions[selectedIndex].value].action();
+    }
 
     return (
         <Fragment>

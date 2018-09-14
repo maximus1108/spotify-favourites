@@ -17,6 +17,7 @@ export const searchQuery = (state = '', action) => {
 }
 
 export const sortBy = (state = 'SORT_NONE', action) => {
+    // console.log(action)
     switch(action.type) {
         case SORT_NONE:
         case SORT_TITLE_ASCENDING:

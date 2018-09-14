@@ -3,16 +3,15 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import Home from '../../pages/Home';
 import Profile from '../../pages/Profile';
 import Unauthorized from '../../pages/Unauthorized';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { authorizeIfNeeded } from '../../actions';
 import Controls from '../Controls/ControlsContainer';
 
 class App extends Component {
 
-    constructor({ authorizeIfNeeded }) {
+    constructor({ authorizeIfNeeded, fetchTracksIfNeeded, fetchProfileIfNeeded}) {
         super();
         authorizeIfNeeded();
+        fetchTracksIfNeeded();
+        fetchProfileIfNeeded();
         this.audio = new Audio();
     }
 
@@ -42,13 +41,4 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    isAuthorized: state.authorization.isAuthorized,
-    redirect: state.redirect,
-    playTrack: state.playingTrack.isPlaying,
-    trackUrl: state.playingTrack.trackUrl
-})
-
-const mapDispatchToProps = dispatch => bindActionCreators({ authorizeIfNeeded }, dispatch)
-    
-export default connect(mapStateToProps, mapDispatchToProps)(App); 
+export default App;
