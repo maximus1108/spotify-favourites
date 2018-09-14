@@ -98,9 +98,6 @@ module.exports = merge(common, {
     plugins: [
         new CleanWebpackPlugin('build', {
             root: root
-        }),        
-        new webpack.DefinePlugin({
-            '__SERVER__': '""'
         }),
         new HtmlWebpackPlugin({
             inject: true,
@@ -137,6 +134,9 @@ module.exports = merge(common, {
             output: {
                 comments: false
             }
+        }),
+        new webpack.DefinePlugin({
+            '__REDIRECT_URL__': '"http://localhost:8080/"'
         })
     ]
 });

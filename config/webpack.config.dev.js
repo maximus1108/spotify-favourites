@@ -68,9 +68,6 @@ module.exports = merge(common, {
     },
     devtool: 'source-map',
     plugins: [
-        new webpack.DefinePlugin({
-            '__SERVER__': '"http://localhost:3000"'
-        }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             inject: true,
@@ -79,6 +76,9 @@ module.exports = merge(common, {
         }),
         new ScriptExtHtmlWebpackPlugin({
             defaultAttribute: 'async'
-        }) 
+        }) ,
+        new webpack.DefinePlugin({
+            '__REDIRECT_URL__': '"http://localhost:3001/"'
+        })
     ]
 });

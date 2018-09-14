@@ -1,7 +1,7 @@
 import querystring from 'query-string';
 
 const client_id = 'aac295ff1ab247a6bcd0bf0d9ad8a14f'; // Your client id
-const redirect_uri = 'http://localhost:3001/'; // Your redirect uri
+const redirect_uri = __REDIRECT_URL__; // Your redirect uri
 const scope = 'user-read-private user-read-email user-top-read';
 const stateKey = 'spotify_auth_state';
 
