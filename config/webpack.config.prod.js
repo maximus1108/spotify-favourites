@@ -96,10 +96,6 @@ module.exports = merge(common, {
         ]
     },
     plugins: [
-        new webpack.DefinePlugin({
-            '__REDIRECT_URL__': '"https://maximus1108.github.io/spotify-favourites/"',
-            'process.env.NODE_ENV': JSON.stringify('production')
-        }),
         new CleanWebpackPlugin('build', {
             root: root
         }),
@@ -138,6 +134,10 @@ module.exports = merge(common, {
             output: {
                 comments: false
             }
+        }),
+        new webpack.DefinePlugin({
+            '__REDIRECT_URL__': '"https://maximus1108.github.io/spotify-favourites/"',
+            'process.env.NODE_ENV': JSON.stringify('production')
         })
     ]
 });
