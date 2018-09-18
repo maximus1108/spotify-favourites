@@ -28,7 +28,7 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                <BrowserRouter>
+                <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <Fragment>
                         <Route exact path="/" 
                             render={_ => this.props.isAuthorized || this.props.redirect ? <Home /> : <Unauthorized/> }/>
