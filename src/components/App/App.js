@@ -28,13 +28,12 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                <BrowserRouter basename={process.env.PUBLIC_URL}>
-                    {/* <Fragment> */}
-                        {/* <Route exact path="/" 
+                <BrowserRouter basename={__BASE_URL__}>
+                    <Fragment>
+                        <Route exact path="/" 
                             render={_ => this.props.isAuthorized || this.props.redirect ? <Home /> : <Unauthorized/> }/>
-                        <Route exact path="/profile" component={ Profile } /> */}
-                        <Route exact path="/" component={ Home } /> 
-                    {/* </Fragment> */}
+                        <Route exact path="/profile" component={ Profile } />
+                    </Fragment>
                 </BrowserRouter>
                 <Controls />
             </Fragment>

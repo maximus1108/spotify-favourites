@@ -137,6 +137,7 @@ module.exports = merge(common, {
         }),
         new webpack.DefinePlugin({
             '__REDIRECT_URL__': '"https://maximus1108.github.io/spotify-favourites/"',
+            '__BASE_URL__': '"/spotify-favourites/"',
             'process.env.NODE_ENV': JSON.stringify('production')
         })
     ]

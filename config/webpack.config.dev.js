@@ -78,7 +78,8 @@ module.exports = merge(common, {
             defaultAttribute: 'async'
         }) ,
         new webpack.DefinePlugin({
-            '__REDIRECT_URL__': '"http://localhost:3001/"'
+            '__REDIRECT_URL__': '"http://localhost:3001/"',
+            '__BASE_URL__': '"/"'
         })
     ]
 });
